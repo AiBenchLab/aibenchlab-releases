@@ -1,21 +1,52 @@
-﻿# AiBenchLab Releases
+# AiBenchLab — Beta (v0.7.1)
 
-Official release repository for [AiBenchLab](https://aibenchlab.com) — the AI model benchmarking platform.
+**Stop guessing which AI model works. Prove it.**
 
-## Installation
+AiBenchLab is a professional Windows desktop app for benchmarking local and cloud AI models on **your** hardware — 254 tests across 998 scoring dimensions, 11 domains, and 22 pre-built suites. Your prompts, models, and results stay on your machine.
 
-Download the latest MSI installer from the [Releases](https://github.com/AiBenchLab/aibenchlab-releases/releases) page.
+> 🧪 **This is a public beta (v0.7.1).** Expect a few rough edges — your results and feedback shape v1.0.
 
-## Auto-Updates
+---
 
-AiBenchLab automatically checks for updates on startup. When a new version is available, you'll see a notification banner with options to download and install.
+## Why AiBenchLab
 
-## System Requirements
+- **100% local.** Benchmarks run on your computer. **No telemetry** — nothing about your prompts, models, or results ever leaves your machine.
+- **Hardware-honest.** Scores reflect *your* CPU/GPU, not a vendor's lab.
+- **Verifiable.** Every result exports as a tamper-evident `.mbx` file (SHA-256 + hardware fingerprint) you can independently check.
 
-- Windows 10/11 (64-bit)
-- 8GB RAM minimum (16GB recommended)
-- GPU with 4GB+ VRAM for local model benchmarking
+---
 
-## License
+## Install
 
-Proprietary software. See [aibenchlab.com](https://aibenchlab.com) for licensing information.
+1. Download **`AiBenchLab-Beta_0.7.1_x64_en-US.msi`** from the **[latest release](https://github.com/AiBenchLab/aibenchlab-releases/releases/latest)**.
+2. Double-click the `.msi` and follow the prompts.
+3. Launch **AiBenchLab** from the Start Menu.
+
+> **Windows SmartScreen warning?** The beta isn't code-signed yet, so Windows may show "unknown publisher." Click **More info → Run anyway**.
+
+> **Verify your download (optional).** Match the file's hash against the SHA-256 shown on the release page:
+> ```powershell
+> Get-FileHash .\AiBenchLab-Beta_0.7.1_x64_en-US.msi -Algorithm SHA256
+> ```
+
+---
+
+## 📖 Documentation & Quick Start
+
+Full guides live on the docs hub — **[aibenchlab.com/docs](https://aibenchlab.com/docs/)**:
+
+- **Quick Start Guide** — run your first benchmark in under 5 minutes
+- **The Benchmark Wizard** — describe what you need; it builds the test suite
+- **Understanding Your Score** — what the composite Score means
+- **Setting Up Local & Cloud Providers** — Ollama, LM Studio, OpenAI, Anthropic, Gemini, Groq, and more
+- **Cost Estimator** — API + electricity costs before you run
+
+---
+
+## Support
+
+Questions? Reply to your trial email, or reach us through **[aibenchlab.com](https://aibenchlab.com)**.
+
+---
+
+*© The Molen Company*
