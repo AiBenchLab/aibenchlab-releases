@@ -1,10 +1,10 @@
-# AiBenchLab — Beta (v0.7.1)
+# AiBenchLab — Beta (v0.7.3)
 
 **Stop guessing which AI model works. Prove it.**
 
 AiBenchLab is a professional Windows desktop app for benchmarking local and cloud AI models on **your** hardware — 254 tests across 998 scoring dimensions, 11 domains, and 22 pre-built suites. Your prompts, models, and results stay on your machine.
 
-> 🧪 **This is a public beta (v0.7.1).** Expect a few rough edges — your results and feedback shape v1.0.
+> 🧪 **This is a public beta (v0.7.3).** Expect a few rough edges — your results and feedback shape v1.0.
 
 ---
 
@@ -18,7 +18,7 @@ AiBenchLab is a professional Windows desktop app for benchmarking local and clou
 
 ## Install
 
-1. Download **`AiBenchLab-Beta_0.7.1_x64_en-US.msi`** from the **[latest release](https://github.com/AiBenchLab/aibenchlab-releases/releases/latest)**.
+1. Download **`AiBenchLab-Beta_0.7.3_x64_en-US.msi`** from the **[latest release](https://github.com/AiBenchLab/aibenchlab-releases/releases/latest)**.
 2. Double-click the `.msi` and follow the prompts.
 3. Launch **AiBenchLab** from the Start Menu.
 
@@ -26,7 +26,7 @@ AiBenchLab is a professional Windows desktop app for benchmarking local and clou
 
 > **Verify your download (optional).** Match the file's hash against the SHA-256 shown on the release page:
 > ```powershell
-> Get-FileHash .\AiBenchLab-Beta_0.7.1_x64_en-US.msi -Algorithm SHA256
+> Get-FileHash .\AiBenchLab-Beta_0.7.3_x64_en-US.msi -Algorithm SHA256
 > ```
 
 ---
