@@ -8,6 +8,16 @@ AiBenchLab is a professional Windows desktop app for benchmarking local and clou
 
 ---
 
+## What's New (v0.7.3)
+
+- Enterprise audit trail with SHA-256 hash-chain integrity verification
+- Offline activation for air-gapped deployments
+- SIEM webhook integration (Splunk, Datadog, ELK)
+
+[Full release notes →](https://github.com/AiBenchLab/aibenchlab-releases/releases/latest)
+
+---
+
 ## Why AiBenchLab
 
 - **100% local.** Benchmarks run on your computer. **No telemetry** — nothing about your prompts, models, or results ever leaves your machine.

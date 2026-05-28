@@ -1,0 +1,65 @@
+name: Update README on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update README with new version
+        env:
+          VERSION: ${{ github.event.release.tag_name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+        run: |
+          # Remove 'v' prefix if present
+          CLEAN_VERSION="${VERSION#v}"
+
+          echo "Updating README for version $CLEAN_VERSION"
+
+          # Update version in title
+          sed -i "s/AiBenchLab — Beta (v[0-9.]*)/AiBenchLab — Beta (v$CLEAN_VERSION)/" README.md
+
+          # Update version in beta notice
+          sed -i "s/This is a public beta (v[0-9.]*)/This is a public beta (v$CLEAN_VERSION)/" README.md
+
+          # Update MSI filename
+          sed -i "s/AiBenchLab-Beta_[0-9.]*_x64_en-US\.msi/AiBenchLab-Beta_${CLEAN_VERSION}_x64_en-US.msi/g" README.md
+
+          # Extract first 3 bullet points from release body for "What's New" section
+          # Look for lines starting with - or *
+          HIGHLIGHTS=$(echo "$RELEASE_BODY" | grep -E '^\s*[-*]' | head -3 | sed 's/^[[:space:]]*[-*][[:space:]]*/- /')
+
+          if [ -n "$HIGHLIGHTS" ]; then
+            # Create the What's New section content
+            WHATS_NEW="## What's New (v$CLEAN_VERSION)\n\n$HIGHLIGHTS\n\n[Full release notes →](https://github.com/AiBenchLab/aibenchlab-releases/releases/latest)\n\n---"
+
+            # Check if What's New section exists
+            if grep -q "## What's New" README.md; then
+              # Replace existing What's New section (up to next ---)
+              sed -i "/## What's New/,/^---$/c\\$WHATS_NEW" README.md
+            else
+              # Insert after the first --- (after the intro block)
+              sed -i "0,/^---$/s/^---$/---\n\n$WHATS_NEW/" README.md
+            fi
+          fi
+
+          echo "README updated successfully"
+          cat README.md
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet || git commit -m "docs: update README for ${{ github.event.release.tag_name }} release"
+          git push
